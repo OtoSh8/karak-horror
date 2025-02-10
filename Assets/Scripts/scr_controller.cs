@@ -109,7 +109,6 @@ public class scr_controller : MonoBehaviour
                     dist += Level1.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
                     SpawnedTiles[5] = Instantiate(Level1, new Vector3(0, 0, dist), Quaternion.identity);
-
                     dist += Level1.GetComponent<MeshRenderer>().bounds.size.z / 2;
                 }
                 else if(isEscaped == false)
@@ -117,7 +116,6 @@ public class scr_controller : MonoBehaviour
                     dist += Level2.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
                     SpawnedTiles[5] = Instantiate(Level2, new Vector3(0, 0, dist), Quaternion.identity);
-
                     dist += Level2.GetComponent<MeshRenderer>().bounds.size.z / 2;
                 }
                 else
@@ -143,7 +141,6 @@ public class scr_controller : MonoBehaviour
                         dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
                         SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
-
                         dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
                     }
                     
@@ -167,13 +164,16 @@ public class scr_controller : MonoBehaviour
                     dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
                     SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
-
                     dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
                 }
             }
-            
 
 
+            if (GameObject.FindGameObjectWithTag("NPCCar"))
+            {
+                GameObject.FindGameObjectWithTag("NPCCar").GetComponent<scr_followroute>().AddRoute(SpawnedTiles[5].gameObject.transform.Find("route"));
+                Debug.Log("ADDED ROUTE");
+            }
 
             backbox.transform.position = new Vector3(backbox.transform.position.x, backbox.transform.position.y, SpawnedTiles[0].transform.position.z - 25);
         }
