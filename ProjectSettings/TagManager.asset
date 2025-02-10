@@ -9,6 +9,7 @@ TagManager:
   - Interact
   - Item
   - NPCCar
+  - road
   layers:
   - Default
   - TransparentFX
