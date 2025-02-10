@@ -15,6 +15,8 @@ public class scr_controller : MonoBehaviour
     public List<GameObject> tileprefabs = new List<GameObject>();
     public GameObject[] SpawnedTiles;
 
+    public List<GameObject> EmptyRoads;
+
     public GameObject Road;
     public GameObject Level1;
     public GameObject Level2;
@@ -44,7 +46,7 @@ public class scr_controller : MonoBehaviour
             dist += tileprefabs.ElementAt(i).GetComponent<MeshRenderer>().bounds.size.z/2;
             SpawnedTiles[i+1] = tile;
         }
-        currenttile = 0;
+        currenttile = -1;
         ogtile = 0;
 
     }
@@ -60,12 +62,12 @@ public class scr_controller : MonoBehaviour
          *      
         */
 
-        float totaldist = 0;
+        /*float totaldist = 0;
         for(int i = 0; i <= currenttile; i++)
         {
             totaldist += tileprefabs[currenttile].GetComponent<MeshRenderer>().bounds.size.z;
-        }
-        if (objplayer.transform.position.z > totaldist)
+        }*/
+        if (objplayer.transform.position.z > SpawnedTiles[2].gameObject.transform.position.z - SpawnedTiles[2].gameObject.GetComponent<MeshRenderer>().bounds.size.z / 2)
         {
             //player is over it bro
             currenttile++;
@@ -83,8 +85,17 @@ public class scr_controller : MonoBehaviour
     {
         if(currenttile > ogtile)
         {
+            //Check if tile i wnat to destroy is an empty road, if so, i dont destroy it hehe
+            if (SpawnedTiles[0].tag == "road")
+            {
+                EmptyRoads.Add(SpawnedTiles[0]);
+            }
+            else
+            {
+                Destroy(SpawnedTiles[0]);
+            }
+            
 
-            Destroy(SpawnedTiles[0]);
             for (int i = 1; i < SpawnedTiles.Length; i++)
             {
                 SpawnedTiles[i - 1] = SpawnedTiles[i];
@@ -117,22 +128,48 @@ public class scr_controller : MonoBehaviour
 
                     dist += tileprefabs[currenttile + 4].GetComponent<MeshRenderer>().bounds.size.z / 2;*/
 
-                    dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                    if (EmptyRoads.Count() >= 2)
+                    {
+                        dist += EmptyRoads[0].GetComponent<MeshRenderer>().bounds.size.z / 2;
+                        SpawnedTiles[5] = EmptyRoads[0];
+                        EmptyRoads[0].transform.position = new Vector3(0, 0, dist);
+                        dist += EmptyRoads[0].GetComponent<MeshRenderer>().bounds.size.z / 2;
 
-                    SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
+                        EmptyRoads.RemoveAt(0);
 
-                    dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                    }
+                    else
+                    {
+                        dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+
+                        SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
+
+                        dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                    }
+                    
                 }
                 
             }
             else
             {
 
-                dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                if (EmptyRoads.Count() >= 2)
+                {
+                    dist += EmptyRoads[0].GetComponent<MeshRenderer>().bounds.size.z / 2;
+                    SpawnedTiles[5] = EmptyRoads[0];
+                    EmptyRoads[0].transform.position = new Vector3(0, 0, dist);
+                    dist += EmptyRoads[0].GetComponent<MeshRenderer>().bounds.size.z / 2;
 
-                SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
+                    EmptyRoads.RemoveAt(0);
+                }
+                else
+                {
+                    dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
-                dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                    SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
+
+                    dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
+                }
             }
             
 
