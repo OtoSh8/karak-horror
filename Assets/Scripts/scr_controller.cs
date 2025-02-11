@@ -171,7 +171,10 @@ public class scr_controller : MonoBehaviour
 
             if (GameObject.FindGameObjectWithTag("NPCCar"))
             {
-                GameObject.FindGameObjectWithTag("NPCCar").GetComponent<scr_followroute>().AddRoute(SpawnedTiles[5].gameObject.transform.Find("route"));
+                foreach(Transform child in SpawnedTiles[5].gameObject.transform.Find("route").transform){
+                    GameObject.FindGameObjectWithTag("NPCCar").GetComponent<scr_followroute>().AddRoute(child);
+                }
+                
                 Debug.Log("ADDED ROUTE");
             }
 
