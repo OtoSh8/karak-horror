@@ -102,7 +102,7 @@ public class scr_controller : MonoBehaviour
             }
 
 
-            if(((currenttile / 5f) - Mathf.FloorToInt((float)currenttile / 5f)) <= 0f)
+            if(((currenttile / 3f) - Mathf.FloorToInt((float)currenttile / 3f)) <= 0f)
             {
                 if(isHelp == false)
                 {

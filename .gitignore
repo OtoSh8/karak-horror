@@ -79,3 +79,8 @@ crashlytics-build.properties
 # MacOS
 .DS_Store
 **/.DS_Store
+Assets/3D Assets/Materials/myvi-33d194fb.001.mat
+Assets/3D Assets/Materials/myvi-33d194fb.001.mat.meta
+Assets/Fungus/EditorResources/FungusEditorResources.asset
+Assets/Fungus/EditorResources/FungusEditorResources.asset.meta
+ProjectSettings/EditorBuildSettings.asset
