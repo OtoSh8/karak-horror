@@ -24,6 +24,9 @@ public class scr_followroute : MonoBehaviour
 
     private bool coroutineAllowed;
 
+    public bool Collided = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +53,8 @@ public class scr_followroute : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(this.transform.position, objplayer.transform.position);
-        Debug.Log("distance: "+ dist);
-        if (dist < 100)
+/*        Debug.Log("distance: "+ dist);
+*/        if (dist < 100)
         {
             isMoving = true;
         }
@@ -105,5 +108,31 @@ public class scr_followroute : MonoBehaviour
 
     }
 
-    
+
+    public void UnColl()
+    {
+        Collided = false;
+    }
+
+    public void OnColl()
+    {
+        Collided = true;
+        StartCoroutine(CHeck());
+    }
+
+    IEnumerator CHeck()
+    {
+        yield return new WaitForSeconds(20f);
+
+        if (Collided)
+        {
+            GameObject.Find("obj_controller").GetComponent<scr_controller>().isEscaped = true;
+            Destroy(gameObject);
+            Debug.Log("LEVEL 2 DONE");
+        }
+
+        yield return null;
+    }
+
+
 }

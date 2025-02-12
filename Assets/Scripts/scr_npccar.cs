@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+using System.Collections;
 public class scr_npccar : MonoBehaviour
 {
     [SerializeField] Transform objplayer;
@@ -21,7 +23,7 @@ public class scr_npccar : MonoBehaviour
 
     scr_WheelControl[] wheels;
     Rigidbody rigidBody;
-
+    public bool Collided = false;
     
     private void NPCAlgo()
     {
@@ -198,6 +200,31 @@ public class scr_npccar : MonoBehaviour
 
 
 
+    }
+
+    public void UnColl()
+    {
+        Collided = false;
+    }
+
+    public void OnColl()
+    {
+        Collided = true;
+        StartCoroutine(CHeck());
+    }
+
+    IEnumerator CHeck()
+    {
+        yield return new WaitForSeconds(10f);
+
+        if (Collided)
+        {
+            GameObject.Find("obj_controller").GetComponent<scr_controller>().isEscaped = true;
+            Destroy(gameObject);
+            Debug.Log("LEVEL 2 DONE");
+        }
+
+        yield return null;
     }
 
 }
