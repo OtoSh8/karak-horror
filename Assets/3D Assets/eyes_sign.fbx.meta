@@ -3,7 +3,17 @@ guid: c205ba47160e3ce41a961a7be3ad35d2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: fa8d7f36ff5cfe8499af7037fa26816d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paint rust
+    second: {fileID: 2100000, guid: 19b497a9ab40ba747bd5f7e1426ad8e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

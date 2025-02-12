@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffd1d2e676caf30418d00c4bc6d48e51
+guid: 32c124ecf827e424b8ccb2f58e9b1380
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,12 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 2c7742be4d6adc947bbbb055dd401284, type: 2}
+    second: {fileID: 2100000, guid: 83e664459ef63c74f849e5d29ab9a37c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: a8970f2328afd4b4d8feac96ff0fa119, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 1d922a6930beee94aaa6818ce19514c2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: paint rust
-    second: {fileID: 2100000, guid: 497c5ace3ecc7204fa25c700ec7e21c4, type: 2}
+    second: {fileID: 2100000, guid: 6e82fc4e39e593946982a43ac97b4e08, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
