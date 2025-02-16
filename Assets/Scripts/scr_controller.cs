@@ -86,7 +86,7 @@ public class scr_controller : MonoBehaviour
         if(currenttile > ogtile)
         {
             //Check if tile i wnat to destroy is an empty road, if so, i dont destroy it hehe
-            if (SpawnedTiles[0].tag == "road")
+            if (SpawnedTiles[0].tag == "road" && SpawnedTiles[0] != null)
             {
                 EmptyRoads.Add(SpawnedTiles[0]);
             }
@@ -102,7 +102,7 @@ public class scr_controller : MonoBehaviour
             }
 
 
-            if(((currenttile / 3f) - Mathf.FloorToInt((float)currenttile / 3f)) <= 0f)
+            if(((currenttile / 6f) - Mathf.FloorToInt((float)currenttile / 6f)) <= 0f)
             {
                 if(isHelp == false)
                 {

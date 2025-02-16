@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Unity.Cinemachine;
+
 public class scr_carcontroller : MonoBehaviour
 {
     public int gear = 1; //1 is drive -1 is reverse
@@ -97,7 +99,13 @@ public class scr_carcontroller : MonoBehaviour
                 wheel.WheelCollider.motorTorque = 0;
             }
            }
-            
+            GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().HorizontalAxis.Value = transform.rotation.eulerAngles.y;
+
+            /*GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = false;
+            GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().HorizontalAxis.Value = 0f;
+            GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().VerticalAxis.Value = 31.5f;
+            GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 9;*/
+
 
         }
         else if (incar == false)

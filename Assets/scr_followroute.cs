@@ -54,7 +54,7 @@ public class scr_followroute : MonoBehaviour
     {
         float dist = Vector3.Distance(this.transform.position, objplayer.transform.position);
 /*        Debug.Log("distance: "+ dist);
-*/        if (dist < 100)
+*/        if (dist < 60)
         {
             isMoving = true;
         }

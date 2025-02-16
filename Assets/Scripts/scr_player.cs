@@ -262,7 +262,7 @@ public class ThirdPersonController : MonoBehaviour
         Camfreelook.Target.TrackingTarget = objcar.transform;
 
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = false;
-        GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().HorizontalAxis.Value = 0f;
+        
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().VerticalAxis.Value = 31.5f;
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 9;
 
