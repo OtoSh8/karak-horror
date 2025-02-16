@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 9af6c039766e7e74f90cd6a6121fe9bc, type: 2}
+    second: {fileID: 2100000, guid: a73f72ed2b3cc0d4dbdbefbd82f4e7bc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: paint rust
-    second: {fileID: 2100000, guid: c23175ee4c54de04680aa5395fcde4f0, type: 2}
+    second: {fileID: 2100000, guid: 34ae940e5b12ef84fb8a5fcc4870f4d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
