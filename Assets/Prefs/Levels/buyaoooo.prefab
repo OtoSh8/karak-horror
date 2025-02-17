@@ -48287,6 +48287,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8774500430118536380, guid: c9883429914e9ec4697bf41af32102dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10.507979
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774500430118536380, guid: c9883429914e9ec4697bf41af32102dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.1883
+      objectReference: {fileID: 0}
     - target: {fileID: 9015024222444503741, guid: c9883429914e9ec4697bf41af32102dc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.46
