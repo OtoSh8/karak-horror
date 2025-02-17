@@ -17,6 +17,14 @@ public class scr_carcontroller : MonoBehaviour
     scr_WheelControl[] wheels;
     Rigidbody rigidBody;
 
+    public Light brk_left;
+    public Light brk_right;
+
+    public Light rev_left;
+    public Light rev_right;
+
+    private bool breaking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +51,32 @@ public class scr_carcontroller : MonoBehaviour
                 {
                     gear = -1;
                     gearind.text = "R";
+                    rev_left.enabled = true;
+                    rev_right.enabled = true;
                 }
                 else if (gear == -1)
                 {
                     gear = 1;
                     gearind.text = "D";
+                    rev_left.enabled = false;
+                    rev_right.enabled = false;
                 }
+            }
+
+            Debug.Log(vInput);
+            if(vInput < -0.5f)
+            {
+
+                    brk_left.enabled = true;
+                    brk_right.enabled = true;
+
+
+
+            }
+            else
+            {
+                brk_left.enabled = false;
+                brk_right.enabled = false;
             }
         
         
@@ -76,6 +104,7 @@ public class scr_carcontroller : MonoBehaviour
         
         foreach (var wheel in wheels)
         {
+                breaking = false;
             // Apply steering to Wheel colliders that have "Steerable" enabled
             if (wheel.steerable)
             {
@@ -90,14 +119,17 @@ public class scr_carcontroller : MonoBehaviour
                     wheel.WheelCollider.motorTorque = gear * Mathf.Abs(vInput) * currentMotorTorque;
                 }
                 wheel.WheelCollider.brakeTorque = 0;
-            }
+                    
+                }
             else
             {
                 // If the user is trying to go in the opposite direction
                 // apply brakes to all wheels
                 wheel.WheelCollider.brakeTorque = Mathf.Abs(gear * vInput) * brakeTorque;
                 wheel.WheelCollider.motorTorque = 0;
-            }
+
+                    breaking = true;
+                }
            }
             GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().HorizontalAxis.Value = transform.rotation.eulerAngles.y;
 
@@ -116,6 +148,8 @@ public class scr_carcontroller : MonoBehaviour
                 wheel.WheelCollider.motorTorque = 0;
             }
         }
+
+        
     }
 
 }

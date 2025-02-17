@@ -240,6 +240,7 @@ public class ThirdPersonController : MonoBehaviour
 
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = true;
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 5.3f;
+                    GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Height = 1.15f;
                 }
                 
             }
@@ -262,9 +263,11 @@ public class ThirdPersonController : MonoBehaviour
         Camfreelook.Target.TrackingTarget = objcar.transform;
 
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = false;
-        
+
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().VerticalAxis.Value = 31.5f;
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 9;
+          GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Height = 3;
+
 
     }
 
