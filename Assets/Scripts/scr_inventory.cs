@@ -5,9 +5,9 @@ using Unity.Cinemachine;
 using TMPro;
 public class scr_inventory : MonoBehaviour
 {
-    int[] inv_data = { 0, 0, 0, 0 , 0, 0, 0, 0 , 0, 0, 0, 0 , 0, 0, 0, 0 };
+    int[] inv_data = { 0, 0, 0, 0 , 0, 0, 0, 0 };
     int[] inv_slots = { 0,0,0,0};
-    private int inv_size = 16;
+    private int inv_size = 8;
 
     private int sel_slot = 0;
 
