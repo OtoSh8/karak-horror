@@ -21,9 +21,11 @@ public class scr_inventory : MonoBehaviour
     public Sprite itm_1;
     public Sprite itm_2;
     public Sprite itm_3;
+    public Sprite itm_4;
 
     public void PickupItem(int x)
     {
+        if (inv_data.Contains(x)) return;
         int empty = 999;
 
         for (var i = 0; i < inv_size; i++)
@@ -195,6 +197,9 @@ public class scr_inventory : MonoBehaviour
             case 3:
                 name = "files";
                 break;
+            case 4:
+                name = "wallet";
+                break;
         }
 
         return name;
@@ -217,6 +222,9 @@ public class scr_inventory : MonoBehaviour
                 break;
             case 3:
                 img = itm_3;
+                break;
+            case 4:
+                img = itm_4;
                 break;
         }
 

@@ -52,6 +52,8 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private Sprite img_glass;
     [SerializeField] private Sprite img_ring;
     [SerializeField] private Sprite img_vape;
+    [SerializeField] private Sprite img_wallet;
+    [SerializeField] private Sprite img_files;
 
     public bool jump;
 
@@ -207,16 +209,16 @@ public class ThirdPersonController : MonoBehaviour
             // If there are any colliders in the area
             if (hitColliders.Length > 0)
             {
-                
-                foreach (Collider hit in hitColliders)
+                HandleInteractables(hitColliders[0]);
+                /*foreach (Collider hit in hitColliders)
                 {
                     // Now you can access the collided object
 
 
                     
-                    HandleInteractables(hit);
+                    
 
-                }
+                }*/
             }
             else
             {
@@ -326,6 +328,7 @@ public class ThirdPersonController : MonoBehaviour
                             img_.sprite = img_vape;
                             img_.SetNativeSize();
                             this.GetComponent<scr_inventory>().PickupItem(1);
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             Destroy(collidedObject.gameObject);
                             break;
                         case "ring":
@@ -354,14 +357,25 @@ public class ThirdPersonController : MonoBehaviour
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
                         case "files":
-                            img_.sprite = img_ring;
+                            img_.sprite = img_files;
                             img_.SetNativeSize();
                             this.GetComponent<scr_inventory>().PickupItem(3);
                             /*BooleanVariable boolVariable = GameObject.Find("model_player").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasRing");
                             boolVariable.Value = true;*/
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            Destroy(collidedObject.gameObject);
 
+                            break;
+                        case "wallet":
+                            img_.sprite = img_wallet;
+                            img_.SetNativeSize();
+                            this.GetComponent<scr_inventory>().PickupItem(4);
+                            BooleanVariable bol = GameObject.Find("shrine").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasWallet");
+                            bol.Value = true;
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            Destroy(collidedObject.gameObject);
+                            break;
+                        case "shrine":
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
                         case null:
                             break;
@@ -387,7 +401,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public void SpawnBarrier()
     {
-        spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,45), Quaternion.identity);
+        spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,30), Quaternion.identity);
         GameObject.FindGameObjectWithTag("level1").GetComponent<scr_levelone>().Interacted();
     }
 

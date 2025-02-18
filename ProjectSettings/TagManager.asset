@@ -11,6 +11,8 @@ TagManager:
   - NPCCar
   - road
   - level1
+  - level2
+  - StopZone
   layers:
   - Default
   - TransparentFX

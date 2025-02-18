@@ -13,9 +13,8 @@ public class InteractableFungusCharacter : MonoBehaviour
 
     private void Start()
     {
-        /*this.gameObject.layer = LayerMask.NameToLayer("Interactable");*/
-
         flow = this.GetComponent<Flowchart>();
+        SayDialog.GetSayDialog();
     }
 
     private void Update()

@@ -26,6 +26,10 @@ public class scr_followroute : MonoBehaviour
 
     public bool Collided = false;
 
+    private bool playernearalrdy = false;
+
+    private bool act = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,20 +53,53 @@ public class scr_followroute : MonoBehaviour
         
     }
 
+    IEnumerator StartCount()
+    {
+        yield return new WaitForSeconds(30f);
+        Debug.Log("ACTIVASTE LEVEL 2");
+
+
+        act = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
+
+
         float dist = Vector3.Distance(this.transform.position, objplayer.transform.position);
 /*        Debug.Log("distance: "+ dist);
 */        if (dist < 60)
         {
+            if (!playernearalrdy)
+            {
+                StartCoroutine(StartCount());
+                playernearalrdy = true;
+            }
+            
             isMoving = true;
         }
         else
         {
             isMoving = false;
         }
-        
+        if (act == true)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+            foreach (Collider col in hitColliders)
+            {
+                if (col.tag == "StopZone")
+                {
+                    isMoving = false;
+                    //Trigger Sumthing
+                    Debug.Log("CAR HAS ALLOWED U");
+                    this.GetComponent<Animator>().Play("beetle_appear");
+                    this.transform.GetChild(0).GetComponent<scr_npccollider>().enabled = false;
+                    GameObject.FindGameObjectWithTag("level2").GetComponent<scr_leveltwo>().activateitems();
+                }
+            }
+        }
 
         if (coroutineAllowed && routeToGo > prev)
         {
@@ -109,7 +146,7 @@ public class scr_followroute : MonoBehaviour
     }
 
 
-    public void UnColl()
+/*    public void UnColl()
     {
         Collided = false;
     }
@@ -132,7 +169,7 @@ public class scr_followroute : MonoBehaviour
         }
 
         yield return null;
-    }
+    }*/
 
 
 }
