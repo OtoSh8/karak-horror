@@ -63,7 +63,6 @@ public class scr_carcontroller : MonoBehaviour
                 }
             }
 
-            Debug.Log(vInput);
             if(vInput < -0.5f)
             {
 

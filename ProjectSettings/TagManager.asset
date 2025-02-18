@@ -10,6 +10,7 @@ TagManager:
   - Item
   - NPCCar
   - road
+  - level1
   layers:
   - Default
   - TransparentFX

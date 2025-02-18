@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using TMPro;
 using Fungus;
+using UnityEngine.UI;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -44,6 +45,13 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject barrierpref;
     private GameObject spawnedbar;
 
+    [Header("Camera Settings")]
+    [SerializeField] private Image img_;
+    [SerializeField] private Sprite img_blood;
+    [SerializeField] private Sprite img_cloth;
+    [SerializeField] private Sprite img_glass;
+    [SerializeField] private Sprite img_ring;
+    [SerializeField] private Sprite img_vape;
 
     public bool jump;
 
@@ -199,7 +207,7 @@ public class ThirdPersonController : MonoBehaviour
             // If there are any colliders in the area
             if (hitColliders.Length > 0)
             {
-                objint.SetActive(true);
+                
                 foreach (Collider hit in hitColliders)
                 {
                     // Now you can access the collided object
@@ -280,6 +288,7 @@ public class ThirdPersonController : MonoBehaviour
         {
 
             txtint.text = "Get in";
+            objint.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ChangeToCar();
@@ -288,32 +297,78 @@ public class ThirdPersonController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Interact"))
         {
             txtint.text = "Interact";
+            
+            objint.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.E))
-            {
+                {
+                img_.enabled = false;
                 collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-            }
+                }
+            
+
+
         }
         else if (collidedObject.gameObject.CompareTag("Item"))
         {
-            txtint.text = collidedObject.name;
-            if (Input.GetKeyDown(KeyCode.E))
+            
+
+            if (collidedObject.GetComponent<scr_item>().enabled == true && collidedObject.GetComponent<scr_item>().isEnabled == true)
             {
-                switch (collidedObject.gameObject.name.ToLower())
-                {
-                    case "vape":
-                    this.GetComponent<scr_inventory>().PickupItem(1);
-                    Destroy(collidedObject.gameObject);
-                        break;
-                    case "ring":
-                        this.GetComponent<scr_inventory>().PickupItem(2);
-                        BooleanVariable boolVariable = GameObject.Find("model_player").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasRing");
-                        boolVariable.Value = true;
-                        
-                        Destroy(collidedObject.gameObject);
-                        break;
-                    case null:
-                        break;
+                txtint.text = collidedObject.name;
+                img_.enabled = true;
+                objint.SetActive(true);
+
+                if(Input.GetKeyDown(KeyCode.E)){
+                    switch (collidedObject.gameObject.name.ToLower())
+                    {
+                        case "vape":
+                            img_.sprite = img_vape;
+                            img_.SetNativeSize();
+                            this.GetComponent<scr_inventory>().PickupItem(1);
+                            Destroy(collidedObject.gameObject);
+                            break;
+                        case "ring":
+                            img_.sprite = img_ring;
+                            img_.SetNativeSize();
+                            this.GetComponent<scr_inventory>().PickupItem(2);
+                            BooleanVariable boolVariable = GameObject.Find("model_player").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasRing");
+                            boolVariable.Value = true;
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            Destroy(collidedObject.gameObject);
+
+                            break;
+                        case "blood":
+                            img_.sprite = img_blood;
+                            img_.SetNativeSize();
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            break;
+                        case "glass":
+                            img_.sprite = img_glass;
+                            img_.SetNativeSize();
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            break;
+                        case "cloth":
+                            img_.sprite = img_cloth;
+                            img_.SetNativeSize();
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            break;
+                        case "files":
+                            img_.sprite = img_ring;
+                            img_.SetNativeSize();
+                            this.GetComponent<scr_inventory>().PickupItem(3);
+                            /*BooleanVariable boolVariable = GameObject.Find("model_player").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasRing");
+                            boolVariable.Value = true;*/
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            Destroy(collidedObject.gameObject);
+
+                            break;
+                        case null:
+                            break;
+                    }
                 }
+
+                
             }
         }
     }
@@ -333,6 +388,7 @@ public class ThirdPersonController : MonoBehaviour
     public void SpawnBarrier()
     {
         spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,45), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("level1").GetComponent<scr_levelone>().Interacted();
     }
 
     public void DestroyBarrier()

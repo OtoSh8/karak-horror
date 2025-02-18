@@ -101,8 +101,8 @@ public class scr_controller : MonoBehaviour
                 SpawnedTiles[i - 1] = SpawnedTiles[i];
             }
 
-
-            if(((currenttile / 6f) - Mathf.FloorToInt((float)currenttile / 6f)) <= 0f)
+            
+            if (((currenttile / 6f) - Mathf.FloorToInt((float)currenttile / 6f)) <= 0f)
             {
                 if(isHelp == false)
                 {
@@ -111,7 +111,7 @@ public class scr_controller : MonoBehaviour
                     SpawnedTiles[5] = Instantiate(Level1, new Vector3(0, 0, dist), Quaternion.identity);
                     dist += Level1.GetComponent<MeshRenderer>().bounds.size.z / 2;
                 }
-                else if(isEscaped == false)
+                else if (isEscaped == false)
                 {
                     dist += Level2.GetComponent<MeshRenderer>().bounds.size.z / 2;
 
@@ -171,8 +171,15 @@ public class scr_controller : MonoBehaviour
 
             if (GameObject.FindGameObjectWithTag("NPCCar"))
             {
-                GameObject.FindGameObjectWithTag("NPCCar").GetComponent<scr_followroute>().AddRoute(SpawnedTiles[5].gameObject.transform.Find("route"));
-                Debug.Log("ADDED ROUTE");
+                int roudad = 0 ;
+
+                foreach(Transform roads in SpawnedTiles[5].gameObject.transform.Find("route").transform)
+                {
+                    GameObject.FindGameObjectWithTag("NPCCar").GetComponent<scr_followroute>().AddRoute(roads);
+                    roudad++;
+                }
+                
+                Debug.Log("ADDED " + roudad + " ROAD(S)");
             }
 
             backbox.transform.position = new Vector3(backbox.transform.position.x, backbox.transform.position.y, SpawnedTiles[0].transform.position.z - 25);

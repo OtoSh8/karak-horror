@@ -20,6 +20,7 @@ public class scr_inventory : MonoBehaviour
     public TextMeshProUGUI txtitem;
     public Sprite itm_1;
     public Sprite itm_2;
+    public Sprite itm_3;
 
     public void PickupItem(int x)
     {
@@ -111,7 +112,7 @@ public class scr_inventory : MonoBehaviour
             }
             else
             {
-                par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+                par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.white;
             }
         }
 
@@ -123,7 +124,7 @@ public class scr_inventory : MonoBehaviour
             }
             else if (inv_data[i] != sel_slot && inv_data[i] != 0)
             {
-                par_inv.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+                par_inv.transform.GetChild(i).GetComponent<Image>().color = Color.white;
             }
         }
 
@@ -135,20 +136,21 @@ public class scr_inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            par_inv.SetActive(!par_inv.activeInHierarchy);
-            if (par_inv.activeInHierarchy)
+            par_inv.transform.parent.gameObject.SetActive(!par_inv.transform.parent.gameObject.activeInHierarchy);
+
+            if (par_inv.transform.parent.gameObject.activeInHierarchy)
             {
                 GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = false;
                 Cursor.lockState = CursorLockMode.None;
             }
-            else if(!par_inv.activeInHierarchy)
+            else if(!par_inv.transform.parent.gameObject.activeInHierarchy)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = true;
             }
         }
 
-        if (par_inv.activeInHierarchy & Input.GetKeyDown(KeyCode.Escape))
+        if (par_inv.transform.parent.gameObject.activeInHierarchy & Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
             GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = false;
@@ -190,6 +192,9 @@ public class scr_inventory : MonoBehaviour
             case 2:
                 name = "ring";
                 break;
+            case 3:
+                name = "files";
+                break;
         }
 
         return name;
@@ -209,6 +214,9 @@ public class scr_inventory : MonoBehaviour
                 break;
             case 2:
                 img = itm_2;
+                break;
+            case 3:
+                img = itm_3;
                 break;
         }
 
@@ -239,7 +247,7 @@ public class scr_inventory : MonoBehaviour
                     }
                     else
                     {
-                        par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+                        par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.white;
                     }
                 }
 
@@ -262,7 +270,7 @@ public class scr_inventory : MonoBehaviour
                     }
                     else
                     {
-                        par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+                        par_hotbar.transform.GetChild(i).GetComponent<Image>().color = Color.white;
                     }
                 }
             }
@@ -277,7 +285,7 @@ public class scr_inventory : MonoBehaviour
                 }
                 else if (inv_data[i] != sel_slot)
                 {
-                    par_inv.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
+                    par_inv.transform.GetChild(i).GetComponent<Image>().color = Color.white;
                 }
             }
         }

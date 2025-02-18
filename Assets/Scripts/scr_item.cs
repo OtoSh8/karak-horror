@@ -5,6 +5,7 @@ public class scr_item : MonoBehaviour
 {
     public float range;
     public string imagename;
+    public bool isEnabled = false;
 
     void Start()
     {
@@ -13,15 +14,23 @@ public class scr_item : MonoBehaviour
 
     private void Update()
     {
-        float dis = Vector3.Distance(this.transform.position, GameObject.Find("obj_player").transform.position);
-        if (dis < range)
+        if (isEnabled)
         {
-            GameObject.Find(imagename).GetComponent<Image>().enabled = true;
+            float dis = Vector3.Distance(this.transform.position, GameObject.Find("obj_player").transform.position);
+            if (dis < range)
+            {
+                GameObject.Find(imagename).GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                GameObject.Find(imagename).GetComponent<Image>().enabled = false;
+            }
         }
         else
         {
             GameObject.Find(imagename).GetComponent<Image>().enabled = false;
         }
+        
     }
 
     private void OnDestroy()
