@@ -32,6 +32,16 @@ public class scr_followroute : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Car")
+        {
+            this.GetComponent<AudioSource>().Play();
+        }
+        
+    }
+
     void Start()
     {
         if (GameObject.FindGameObjectsWithTag("NPCCar").Length >= 2)
