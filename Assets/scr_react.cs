@@ -5,6 +5,8 @@ public class scr_react : MonoBehaviour
 {
     public int threshold = 50;
     private bool isNearby = false;
+
+    [SerializeField] scr_bpm bpm;
     // Update is called once per frame
     void Update()
     {
@@ -38,11 +40,13 @@ public class scr_react : MonoBehaviour
 
     private void Anxious()
     {
+        // SET BPM, START CAMERA GLITCH, START OVERLAY ANIMATION
+        bpm.bpm = 90;
 
     }
 
     private void CalmDown()
     {
-
+        bpm.bpm = 60;
     }
 }
