@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using URPGlitch;
 
 public class scr_react : MonoBehaviour
 {
@@ -7,6 +9,12 @@ public class scr_react : MonoBehaviour
     private bool isNearby = false;
 
     [SerializeField] scr_bpm bpm;
+    [SerializeField] Volume vol;
+    AnalogGlitchVolume anavol;
+    private void Start()
+    {
+        vol.profile.TryGet(out anavol);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -38,15 +46,20 @@ public class scr_react : MonoBehaviour
         return false;
     }
 
+
     private void Anxious()
     {
         // SET BPM, START CAMERA GLITCH, START OVERLAY ANIMATION
         bpm.bpm = 90;
+        
+        anavol.scanLineJitter.Override(0.5f);
 
     }
 
     private void CalmDown()
     {
         bpm.bpm = 60;
+        anavol.scanLineJitter.Override(0f);
+
     }
 }

@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4456148823592947627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b51d34ff9fa60499f5f35735de5c90, type: 3}
+  m_Name: AnalogGlitchRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  anaglogGlitchShader: {fileID: 4800000, guid: 97d9be06c8e6c1e4781abe10d57474a8, type: 3}
+  renderPassEvent: 500
 --- !u!114 &-40911666594455704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +64,8 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   - {fileID: 2090977603861167885}
   - {fileID: -40911666594455704}
-  m_RendererFeatureMap: ad6b866f10d7b46c0d3f715f0da5041d68df77550ea76eff
+  - {fileID: -4456148823592947627}
+  m_RendererFeatureMap: ad6b866f10d7b46c0d3f715f0da5041d68df77550ea76eff55b0772f419428c2
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -89,6 +105,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   config: {fileID: 11400000, guid: 16ab2d65a4720cc4f864e3e9f50e4d7f, type: 2}
+--- !u!114 &3463237319426054517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e65186ef1f25f74b9e6da90e3a9c15e, type: 3}
+  m_Name: AnalogGlitchFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  shader: {fileID: 4800000, guid: a8806b096c701424f865bdd5e4b76928, type: 3}
 --- !u!114 &7833122117494664109
 MonoBehaviour:
   m_ObjectHideFlags: 0
