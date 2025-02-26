@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4fcc42a38f87b04b9f177822efb2796
+guid: c23c80076e9b1984291a0f749a5a8414
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: metal
-    second: {fileID: 2100000, guid: a06ef6eca48182e4eb6a46e6a62ba15e, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 69fec05f84948ba4c838f6c52a928551, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bush base
+    second: {fileID: 2100000, guid: 6663f7791e8ab474a9d81b6b8ad2a882, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: middle
+    second: {fileID: 2100000, guid: 873710e4588952b4fb3e10edeeb453cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: old
+    second: {fileID: 2100000, guid: cab23fa0744d57b4986aa3dc1c4a76ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: young
+    second: {fileID: 2100000, guid: ad074df828d949d4383ab3e84569a97d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
