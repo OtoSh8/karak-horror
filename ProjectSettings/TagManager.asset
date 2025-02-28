@@ -13,6 +13,7 @@ TagManager:
   - level1
   - level2
   - StopZone
+  - Ghost
   layers:
   - Default
   - TransparentFX
