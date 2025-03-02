@@ -401,7 +401,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public void SpawnBarrier()
     {
-        spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,30), Quaternion.identity);
+        spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,40), Quaternion.identity);
         GameObject.FindGameObjectWithTag("level1").GetComponent<scr_levelone>().Interacted();
     }
 

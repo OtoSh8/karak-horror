@@ -23,6 +23,9 @@ public class scr_inventory : MonoBehaviour
     public Sprite itm_3;
     public Sprite itm_4;
 
+    public GameObject par_ring_held;
+
+
     public void PickupItem(int x)
     {
         if (inv_data.Contains(x)) return;
@@ -102,7 +105,7 @@ public class scr_inventory : MonoBehaviour
                 sel_slot = inv_slots[crntslot - 1];
             }
         
-        
+        HoldItem(inv_data[sel_slot]);
 
 
 
@@ -132,6 +135,21 @@ public class scr_inventory : MonoBehaviour
 
         }
 
+        
+
+    }
+
+    private void HoldItem(int y)
+    {
+        switch (y)
+        {
+            case 2:
+                par_ring_held.SetActive(true);
+                break;
+            default:
+                par_ring_held.SetActive(false);
+                break;
+        }
     }
 
     private void Update()
@@ -238,7 +256,15 @@ public class scr_inventory : MonoBehaviour
 
         if (inv_data[x] != 0)
         {
-            
+            switch (inv_data[x])
+            {
+                case 2:
+                    par_ring_held.SetActive(true);
+                    break;
+                default:
+                    par_ring_held.SetActive(false);
+                    break;
+            }
 
 
             //already exists in hotbar
