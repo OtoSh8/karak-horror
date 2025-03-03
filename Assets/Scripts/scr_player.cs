@@ -15,7 +15,8 @@ public class ThirdPersonController : MonoBehaviour
     public LayerMask groundLayer; // To check if the player is grounded
     public LayerMask carLayer;
     private bool isSprint;
-    private bool isCrouch;
+    public bool isCrouch;
+    public bool isMoving;
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineCamera Camfreelook;
@@ -103,9 +104,23 @@ public class ThirdPersonController : MonoBehaviour
         // Movement input
         float moveX = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : 0f;
         float moveZ = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : 0f;
+
+        if(moveX != 0f || moveZ != 0f)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
         inputMovement = new Vector2(moveX, moveZ);
         isSprint = Input.GetKey(KeyCode.LeftShift);
-        isCrouch = Input.GetKey(KeyCode.LeftControl);
+        /*isCrouch = Input.GetKey(KeyCode.LeftControl);*/
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouch = !isCrouch;
+        }
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isSprint", isSprint);
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isCrouch", isCrouch);
 

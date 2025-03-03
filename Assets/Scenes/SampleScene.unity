@@ -7749,7 +7749,7 @@ MonoBehaviour:
   Level1: {fileID: 6419656596526888891, guid: 83758b56a631eec4ab23b8a16e367cd5, type: 3}
   Level2: {fileID: 4394145997792205197, guid: ff20bb1f456f779478ca992bb4d5c266, type: 3}
   crnt_level1_obj: {fileID: 0}
-  isHelp: 1
+  isHelp: 0
   isEscaped: 0
 --- !u!4 &1154597698
 Transform:
@@ -8720,14 +8720,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386633391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c3ff4fa63dde14eb88468106ac570f, type: 3}
+  m_Script: {fileID: 11500000, guid: e06fb86217ad7704b8d25ee8388bd47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  raycastDistance: 50
-  horizontalRayCount: 20
-  verticalRayCount: 20
+  raycastDistance: 19.91
+  horizontalRayCount: 80
+  verticalRayCount: 14
   spotlight: {fileID: 1983594433}
+  radius: 20
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1395735271
 GameObject:
   m_ObjectHideFlags: 0
