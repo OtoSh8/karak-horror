@@ -20,6 +20,7 @@ public class scr_controller : MonoBehaviour
     public GameObject Road;
     public GameObject Level1;
     public GameObject Level2;
+    public GameObject Level3;
 
 
     public GameObject crnt_level1_obj;
@@ -120,13 +121,18 @@ public class scr_controller : MonoBehaviour
                 }
                 else
                 {
+                    dist += Level3.GetComponent<MeshRenderer>().bounds.size.z / 2;
+
+                    SpawnedTiles[5] = Instantiate(Level3, new Vector3(0, 0, dist), Quaternion.identity);
+                    dist += Level3.GetComponent<MeshRenderer>().bounds.size.z / 2;
+
                     /*dist += tileprefabs[currenttile + 4].GetComponent<MeshRenderer>().bounds.size.z / 2;
 
                     SpawnedTiles[5] = Instantiate(tileprefabs[currenttile + 4], new Vector3(0, 0, dist), Quaternion.identity);
 
                     dist += tileprefabs[currenttile + 4].GetComponent<MeshRenderer>().bounds.size.z / 2;*/
 
-                    if (EmptyRoads.Count() >= 2)
+                    /*if (EmptyRoads.Count() >= 2)
                     {
                         dist += EmptyRoads[0].GetComponent<MeshRenderer>().bounds.size.z / 2;
                         SpawnedTiles[5] = EmptyRoads[0];
@@ -142,8 +148,8 @@ public class scr_controller : MonoBehaviour
 
                         SpawnedTiles[5] = Instantiate(Road, new Vector3(0, 0, dist), Quaternion.identity);
                         dist += Road.GetComponent<MeshRenderer>().bounds.size.z / 2;
-                    }
-                    
+                    }*/
+
                 }
                 
             }
