@@ -25,6 +25,8 @@ public class scr_controller : MonoBehaviour
 
     public GameObject crnt_level1_obj;
 
+    public GameObject particle_release;
+
 
     private float dist = 25;
 
@@ -55,6 +57,7 @@ public class scr_controller : MonoBehaviour
     public void HelpChild()
     {
         isHelp = true;
+        Instantiate(particle_release,GameObject.Find("model_player").transform.position,Quaternion.Euler(-90,0,0));
     }
 
     private void Update()

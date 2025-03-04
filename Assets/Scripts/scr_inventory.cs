@@ -24,6 +24,7 @@ public class scr_inventory : MonoBehaviour
     public Sprite itm_4;
 
     public GameObject par_held;
+    public GameObject tip_vape;
 
 
     public void PickupItem(int x)
@@ -186,6 +187,30 @@ public class scr_inventory : MonoBehaviour
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
         {
             OnScroll(true);
+        }
+        if(sel_slot == 1)
+        {
+            tip_vape.SetActive(true);
+        }
+        else
+        {
+            tip_vape.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            switch (sel_slot)
+            {
+                case 1:
+                    //vape
+                    this.transform.GetChild(0).GetComponent<Animator>().Play("drink");
+                    this.GetComponent<scr_react>().CalmDown();
+                    break;
+                case 2:
+                    //ring
+                    break;
+                case 3:
+                    break;
+            }
         }
     }
     private void Start()

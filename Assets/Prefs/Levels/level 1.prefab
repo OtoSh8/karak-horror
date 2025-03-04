@@ -2032,7 +2032,7 @@ TerrainCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 68801e1bebf4ee04584f5e7c02b973b0, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 6d7d5bcbf263c944685c67e16639215c, type: 2}
   m_EnableTreeColliders: 1
 --- !u!1 &3222481292657335003
 GameObject:
@@ -3107,6 +3107,7 @@ MonoBehaviour:
   - {fileID: 834372650170377731}
   - {fileID: 2569987347231152441}
   - {fileID: 231596658940046607}
+  placeholder: {fileID: 0}
 --- !u!1 &7789018887262726778
 GameObject:
   m_ObjectHideFlags: 0

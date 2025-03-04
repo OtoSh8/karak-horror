@@ -11,4 +11,5 @@ public class scr_leveltwo : MonoBehaviour
             item.GetComponent<scr_item>().isEnabled = true;
         }
     }
+
 }

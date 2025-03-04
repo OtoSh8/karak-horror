@@ -245,7 +245,7 @@ public class ThirdPersonController : MonoBehaviour
             objint.SetActive(false);
             this.transform.localPosition = new Vector3(2,0,0);
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || this.GetComponent<scr_react>().isPanic)
             {
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f, 0);
 
@@ -266,8 +266,10 @@ public class ThirdPersonController : MonoBehaviour
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = true;
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 5.3f;
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Height = 1.15f;
+                    GameObject.Find("FreeLook Camera").GetComponent<CinemachineRotationComposer>().TargetOffset = new Vector3(0, 0.78f, 0);
+
                 }
-                
+
             }
         }
 
@@ -292,6 +294,8 @@ public class ThirdPersonController : MonoBehaviour
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().VerticalAxis.Value = 31.5f;
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 9;
           GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Height = 3;
+        GameObject.Find("FreeLook Camera").GetComponent<CinemachineRotationComposer>().TargetOffset = new Vector3(0, 2f, 0);
+
 
 
     }
@@ -306,7 +310,7 @@ public class ThirdPersonController : MonoBehaviour
 
             txtint.text = "Get in";
             objint.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !this.GetComponent<scr_react>().isPanic)
             {
                 ChangeToCar();
             }
@@ -344,7 +348,7 @@ public class ThirdPersonController : MonoBehaviour
                             img_.SetNativeSize();
                             this.GetComponent<scr_inventory>().PickupItem(1);
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            Destroy(collidedObject.gameObject);
+                            
                             break;
                         case "ring":
                             img_.sprite = img_ring;
@@ -353,7 +357,7 @@ public class ThirdPersonController : MonoBehaviour
                             BooleanVariable boolVariable = GameObject.Find("model_player").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasRing");
                             boolVariable.Value = true;
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            Destroy(collidedObject.gameObject);
+                            
 
                             break;
                         case "blood":
@@ -387,7 +391,6 @@ public class ThirdPersonController : MonoBehaviour
                             BooleanVariable bol = GameObject.Find("shrine").GetComponent<Flowchart>().GetVariable<BooleanVariable>("hasWallet");
                             bol.Value = true;
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            Destroy(collidedObject.gameObject);
                             break;
                         case "shrine":
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();

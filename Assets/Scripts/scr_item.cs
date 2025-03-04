@@ -35,7 +35,11 @@ public class scr_item : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameObject.Find(imagename).GetComponent<Image>().enabled = false;
+        if(GameObject.Find(imagename) != null)
+        {
+            GameObject.Find(imagename).GetComponent<Image>().enabled = false;
+
+        }
     }
 
 }

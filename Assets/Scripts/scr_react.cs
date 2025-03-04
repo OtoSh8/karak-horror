@@ -11,9 +11,14 @@ public class scr_react : MonoBehaviour
 
     private bool Triggered = false;
 
+    public bool isPanic = false;
+
     [SerializeField] scr_bpm bpm;
     [SerializeField] Volume vol;
     AnalogGlitchVolume anavol;
+
+    [SerializeField] Animator animator;
+
     private void Start()
     {
         vol.profile.TryGet(out anavol);
@@ -59,21 +64,23 @@ public class scr_react : MonoBehaviour
         // SET BPM, START CAMERA GLITCH, START OVERLAY ANIMATION
         bpm.bpm = 90;
         
-        anavol.scanLineJitter.Override(0.5f);
-        anavol.colorDrift.Override(0.3f);
+        anavol.scanLineJitter.Override(0.3f);
+        anavol.colorDrift.Override(0.2f);
+        animator.Play("bpmoverlay_appear");
+        isPanic = true;
+/*        yield return new WaitForSeconds(5f);
 
-        yield return new WaitForSeconds(5f);
-
-        CalmDown();
+        CalmDown();*/
         yield return null;
 
     }
 
-    private void CalmDown()
+    public void CalmDown()
     {
+        isPanic = false;
         bpm.bpm = 60;
         anavol.scanLineJitter.Override(0f);
         anavol.colorDrift.Override(0f);
-
+        animator.Play("bpmoverlay_hide");
     }
 }
