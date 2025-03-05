@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.03
@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0, g: 0.015805576, b: 0.18867922, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0
+  m_AmbientIntensity: 2.67
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.37796682, g: 0.11372547, b: 0.77254903, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 51b74d7bad397457d883c5940f7664d8, type: 2}
@@ -6633,7 +6633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -778, y: 504}
+  m_AnchoredPosition: {x: -778, y: -498.9}
   m_SizeDelta: {x: 331.1317, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810915902
@@ -8212,8 +8212,8 @@ MonoBehaviour:
   Level3: {fileID: 4413311038005963231, guid: ce19f46b941ce274096e1249d45dd1cb, type: 3}
   crnt_level1_obj: {fileID: 0}
   particle_release: {fileID: 1071819926091247890, guid: 54430beb322329144bd9be694915ee90, type: 3}
-  isHelp: 0
-  isEscaped: 0
+  isHelp: 1
+  isEscaped: 1
 --- !u!4 &1154597698
 Transform:
   m_ObjectHideFlags: 0
@@ -18632,6 +18632,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154062198110237789, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084726164456306261, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084726164456306261, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084726164456306261, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
+      propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

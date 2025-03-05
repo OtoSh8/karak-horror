@@ -86,6 +86,17 @@ public class ThirdPersonController : MonoBehaviour
         /*UpdateCamera();*/
         CheckCar();
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isGrounded", isGrounded);
+
+        if (isCrouch)
+        {
+            this.GetComponent<CapsuleCollider>().height = 1.5f;
+            this.GetComponent<CapsuleCollider>().center = new Vector3(0, -0.2f, 0);
+        }
+        else
+        {
+            this.GetComponent<CapsuleCollider>().height = 2f;
+            this.GetComponent<CapsuleCollider>().center = new Vector3(0, 0f, 0);
+        }
     }
 
     private void FixedUpdate()
