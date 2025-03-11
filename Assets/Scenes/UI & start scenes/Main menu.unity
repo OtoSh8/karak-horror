@@ -1421,7 +1421,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1531,8 +1531,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f182a5177a3ff874288c9b72f65e1051, type: 3}
-  m_Resource: {fileID: 8300000, guid: f182a5177a3ff874288c9b72f65e1051, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 83ab7d72a8c699c41a449dec930c376f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 83ab7d72a8c699c41a449dec930c376f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.694
   m_Pitch: 1
