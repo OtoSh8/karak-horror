@@ -17,6 +17,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool isSprint;
     public bool isCrouch;
     public bool isMoving;
+    public bool isdown;
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineCamera Camfreelook;
@@ -126,7 +127,13 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         inputMovement = new Vector2(moveX, moveZ);
-        isSprint = Input.GetKey(KeyCode.LeftShift);
+
+        if (!isdown)
+        {
+            isSprint = Input.GetKey(KeyCode.LeftShift);
+        }
+        
+
         /*isCrouch = Input.GetKey(KeyCode.LeftControl);*/
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -150,7 +157,9 @@ public class ThirdPersonController : MonoBehaviour
 
         this.transform.GetChild(0).GetComponent<Animator>().SetFloat("Motion",(move.x + move.y) == 0 ? 0 : Mathf.Abs(Mathf.Sign((move.x + move.y))));
 
-        rb.MovePosition(rb.position + move * (isCrouch ? movementSpeed-1 : isSprint ? movementSpeed+3 : movementSpeed) * Time.fixedDeltaTime);
+        float crouchspd = movementSpeed -1;
+        float sprintspd = movementSpeed+3;
+        rb.MovePosition(rb.position + move * (isCrouch ? crouchspd : (isSprint ? sprintspd : movementSpeed)) * Time.fixedDeltaTime);
     }
 
     private void RotatePlayer()
