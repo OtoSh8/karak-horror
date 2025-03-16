@@ -37,13 +37,13 @@ public class scr_billboard : MonoBehaviour
         if (targetObject == null || mainCamera == null) return;
 
         // Convert the 3D position of the target to a 2D screen position
-        Vector3 screenPosition = mainCamera.WorldToScreenPoint(targetObject.position);
+        Vector3 screenPosition = mainCamera.WorldToScreenPoint(targetObject.position + offset);
 
         // Check if the object is in front of the camera
         if (screenPosition.z > 0)
         {
             // Update the UI position
-            rectTransform.position = screenPosition+offset;
+            rectTransform.position = screenPosition;
         }
         else
         {

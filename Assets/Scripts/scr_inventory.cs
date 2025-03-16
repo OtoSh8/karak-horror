@@ -26,6 +26,7 @@ public class scr_inventory : MonoBehaviour
     public GameObject par_held;
     public GameObject tip_vape;
 
+    public GameObject quest;
 
     public void PickupItem(int x)
     {
