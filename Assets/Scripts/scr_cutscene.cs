@@ -5,8 +5,8 @@ public class scr_cutscene : MonoBehaviour
 {
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(15f);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(20f);
+        SceneManager.LoadScene("gameControl");
     }
 
     private void Start()
