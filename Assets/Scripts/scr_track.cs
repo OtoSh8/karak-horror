@@ -23,7 +23,11 @@ public class scr_track : MonoBehaviour
 
     void Update()
     {
-        CheckForTargetInSpotlight();
+        if (spotlight.enabled)
+        {
+            CheckForTargetInSpotlight();
+
+        }
 
 
     }

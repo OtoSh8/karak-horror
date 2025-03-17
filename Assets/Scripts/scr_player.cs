@@ -415,6 +415,9 @@ public class ThirdPersonController : MonoBehaviour
                         case "shrine":
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
+                        case "corpse":
+                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
+                            break;
                         case null:
                             break;
                     }

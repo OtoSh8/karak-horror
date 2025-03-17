@@ -17017,8 +17017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_blood
   isEnabled: 0
+  pref_bil: {fileID: 1760969423437385425, guid: 3a77345b7f428914baadec81d584273a, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &3533115327406644357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39781,8 +39782,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_files
   isEnabled: 0
+  pref_bil: {fileID: 1760969423437385425, guid: 3a77345b7f428914baadec81d584273a, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &3576892655425522909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55313,8 +55315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_glass
   isEnabled: 0
+  pref_bil: {fileID: 1760969423437385425, guid: 3a77345b7f428914baadec81d584273a, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &2493131766130221155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57608,8 +57611,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_cloth
   isEnabled: 0
+  pref_bil: {fileID: 1760969423437385425, guid: 3a77345b7f428914baadec81d584273a, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &6899740430034625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58185,8 +58189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_ring
   isEnabled: 0
+  pref_bil: {fileID: 1760969423437385425, guid: 3a77345b7f428914baadec81d584273a, type: 3}
+  offset: {x: 0, y: 0.2, z: 0}
 --- !u!114 &4198778612030024796
 MonoBehaviour:
   m_ObjectHideFlags: 0

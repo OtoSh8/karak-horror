@@ -4,6 +4,8 @@ using UnityEngine;
 public class scr_levelthree : MonoBehaviour
 {
     public List<GameObject> listitems = new List<GameObject>();
+    public scr_item corpse;
+
     public void activateitems()
     {
         foreach(GameObject item in listitems)
@@ -15,6 +17,7 @@ public class scr_levelthree : MonoBehaviour
     public void OnPreg()
     {
         GameObject.Find("obj_player").GetComponent<scr_inventory>().quest.GetComponent<scr_quest>().AddList("Help the pregnant lady \nfind her husband.");
+        corpse.isEnabled = true;
     }
 
     public void OnFinishQuest()
