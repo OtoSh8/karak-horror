@@ -22,7 +22,7 @@ public class MouseJumpscare : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!hasTriggered && other.CompareTag("Car"))
+        if (!hasTriggered && other.CompareTag("Car") || !hasTriggered && other.CompareTag("Player"))
         {
             hasTriggered = true;
             mouse.SetActive(true); // Show the mouse
@@ -36,12 +36,15 @@ public class MouseJumpscare : MonoBehaviour
 
     IEnumerator MoveMouse()
     {
+        GameObject.Find("obj_player").GetComponent<scr_react>().Shocked();
+
         while (Vector3.Distance(mouse.transform.position, endPoint.position) > 0.1f)
         {
             mouse.transform.position = Vector3.MoveTowards(mouse.transform.position, endPoint.position, speed * Time.deltaTime);
             yield return null;
         }
 
+        
         yield return new WaitForSeconds(0.5f); // Wait before hiding
         mouse.SetActive(false);
     }

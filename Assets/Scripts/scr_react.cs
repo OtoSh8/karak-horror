@@ -43,6 +43,11 @@ public class scr_react : MonoBehaviour
         }
     }
 
+    public void Shocked()
+    {
+        StartCoroutine(Anxious());
+    }
+
     private bool IsNear()
     {
         
