@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c5ee2aecc7a9734580f9640765426e3
+guid: 4dc870cf0b67e0342a0fdb9a83f49a72
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: battery black
-    second: {fileID: 2100000, guid: d5103b3438ce1634f8f5ec1542867f15, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 38f7af18c2f35bb49817dfd391c16b88, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: btry metal
-    second: {fileID: 2100000, guid: bcb450990d8e8954095fdf1084affcb3, type: 2}
+      name: black
+    second: {fileID: 2100000, guid: cc718740208bffa488154a1a54b71237, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: btry orange
-    second: {fileID: 2100000, guid: 93d9efb3843311b479349b5ec45ad85f, type: 2}
+      name: white
+    second: {fileID: 2100000, guid: 4bed30f319ecb414c95984c6c95ed084, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

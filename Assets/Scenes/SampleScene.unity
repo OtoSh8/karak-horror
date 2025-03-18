@@ -6030,7 +6030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 1842416175}
 --- !u!4 &624863478
 Transform:
   m_ObjectHideFlags: 1
@@ -8147,8 +8147,8 @@ MonoBehaviour:
   Level3: {fileID: 4413311038005963231, guid: ce19f46b941ce274096e1249d45dd1cb, type: 3}
   crnt_level1_obj: {fileID: 0}
   particle_release: {fileID: 1071819926091247890, guid: 54430beb322329144bd9be694915ee90, type: 3}
-  isHelp: 1
-  isEscaped: 1
+  isHelp: 0
+  isEscaped: 0
 --- !u!4 &1154597698
 Transform:
   m_ObjectHideFlags: 0
@@ -16312,8 +16312,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1842416173}
-  selectedCommands:
-  - {fileID: 1842416181}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
