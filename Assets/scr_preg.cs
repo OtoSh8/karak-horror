@@ -52,7 +52,7 @@ public class scr_preg : MonoBehaviour
     {
         GameObject.Find("obj_player").transform.GetChild(0).GetComponent<Animator>().Play("slash");
         GameObject.Find("obj_player").GetComponent<scr_inventory>().HoldItem(3);
-
+        karak.GetComponent<scr_track>().isdead = true;
         light.SetActive(false);
         karak.Play("die");
         Instantiate(pref_particles,this.transform.GetChild(0).transform.position, Quaternion.Euler(-90, 0, 0));

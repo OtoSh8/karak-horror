@@ -494,6 +494,7 @@ MonoBehaviour:
   spotlight: {fileID: 5301379230719834056}
   radius: 21.1
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isdead: 0
 --- !u!135 &3542603120971584138
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1801,7 +1802,7 @@ MonoBehaviour:
   parang: {fileID: 1462103985900720032}
   corpse: {fileID: 6247497809693323653}
   kill: {fileID: 7457309623222442533}
-  wife: {fileID: 0}
+  wife: {fileID: 6074978207409983477}
   pref_particles: {fileID: 1071819926091247890, guid: edd337d1fab216d4fa5b4e57fe2e6627, type: 3}
 --- !u!1 &450338735131248628
 GameObject:

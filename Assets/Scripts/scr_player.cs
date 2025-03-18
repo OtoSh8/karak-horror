@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using TMPro;
 using Fungus;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class ThirdPersonController : MonoBehaviour
     private GameObject spawnedbar;
 
     public bool isEnabled = true;
-    public bool gamefinished = false;
+    public bool gamefinished =false;
 
     [Header("Interaction Thumbnails")]
     [SerializeField] public Image img_;
@@ -357,6 +358,10 @@ public class ThirdPersonController : MonoBehaviour
             objint.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E) && !this.GetComponent<scr_react>().isPanic)
             {
+                if (gamefinished)
+                {
+                    SceneManager.LoadScene("Ending");
+                }
                 ChangeToCar();
             }
         }

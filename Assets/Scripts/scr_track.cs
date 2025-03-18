@@ -14,6 +14,7 @@ public class scr_track : MonoBehaviour
 
     private SphereCollider sphereCollider;
 
+    public bool isdead = false;
     void Start()
     {
         sphereCollider = gameObject.AddComponent<SphereCollider>();
@@ -114,6 +115,7 @@ public class scr_track : MonoBehaviour
 
     private void GotCaught()
     {
+        if (isdead) return;
         Debug.Log("DEAD");
         GameObject.Find("par_jumpscare").GetComponent<scr_death>().Death(3);
     }
