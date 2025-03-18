@@ -8147,8 +8147,8 @@ MonoBehaviour:
   Level3: {fileID: 4413311038005963231, guid: ce19f46b941ce274096e1249d45dd1cb, type: 3}
   crnt_level1_obj: {fileID: 0}
   particle_release: {fileID: 1071819926091247890, guid: 54430beb322329144bd9be694915ee90, type: 3}
-  isHelp: 0
-  isEscaped: 0
+  isHelp: 1
+  isEscaped: 1
 --- !u!4 &1154597698
 Transform:
   m_ObjectHideFlags: 0
