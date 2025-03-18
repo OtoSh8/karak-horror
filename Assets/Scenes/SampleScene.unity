@@ -3635,11 +3635,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 27.46514, y: 133.18239}
+  scrollPos: {x: 265.83002, y: 97.71428}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 542.5
-  zoom: 0.9100001
+  blockViewHeight: 593
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -3648,7 +3648,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 620299564}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 5866666020340054189}
   variables:
   - {fileID: 620299576}
   - {fileID: 620299595}
@@ -3955,7 +3956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: <color=red> Please... I've been stuck here for a long time...
+  storyText: <color=red> NO ELP?
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -6029,7 +6030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 620299560}
+  selectedFlowchart: {fileID: 1842416175}
 --- !u!4 &624863478
 Transform:
   m_ObjectHideFlags: 1
@@ -8146,8 +8147,8 @@ MonoBehaviour:
   Level3: {fileID: 4413311038005963231, guid: ce19f46b941ce274096e1249d45dd1cb, type: 3}
   crnt_level1_obj: {fileID: 0}
   particle_release: {fileID: 1071819926091247890, guid: 54430beb322329144bd9be694915ee90, type: 3}
-  isHelp: 0
-  isEscaped: 0
+  isHelp: 1
+  isEscaped: 1
 --- !u!4 &1154597698
 Transform:
   m_ObjectHideFlags: 0
