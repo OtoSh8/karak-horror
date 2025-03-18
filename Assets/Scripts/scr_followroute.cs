@@ -30,13 +30,14 @@ public class scr_followroute : MonoBehaviour
 
     private bool act = false;
 
-
+    private bool activated = false;
     // Start is called before the first frame update
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Car")
         {
+            GameObject.FindFirstObjectByType<scr_death>().Death(2);
             this.GetComponent<AudioSource>().Play();
         }
         
@@ -104,6 +105,11 @@ public class scr_followroute : MonoBehaviour
                     isMoving = false;
                     //Trigger Sumthing
                     Debug.Log("CAR HAS ALLOWED U");
+                    if (!activated)
+                    {
+                        GameObject.Find("obj_player").GetComponent<scr_inventory>().quest.GetComponent<scr_quest>().AddList("Set the beetle car driver free.");
+                        activated = true;
+                    }
                     this.GetComponent<Animator>().Play("beetle_appear");
                     this.transform.GetChild(0).GetComponent<scr_npccollider>().enabled = false;
                     GameObject.FindGameObjectWithTag("level2").GetComponent<scr_leveltwo>().activateitems();

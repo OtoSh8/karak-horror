@@ -39,4 +39,9 @@ public class scr_billb : MonoBehaviour
             billboard.SetActive(false);
         }
     }
+
+    private void OnDestroy()
+    {
+        Destroy(billboard);
+    }
 }

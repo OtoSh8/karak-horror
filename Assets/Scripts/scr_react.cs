@@ -19,6 +19,9 @@ public class scr_react : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [SerializeField] GameObject txtbpm;
+
+
     private void Start()
     {
         vol.profile.TryGet(out anavol);
@@ -68,7 +71,9 @@ public class scr_react : MonoBehaviour
     {
         // SET BPM, START CAMERA GLITCH, START OVERLAY ANIMATION
         bpm.bpm = 90;
-        
+        txtbpm.GetComponent<AudioSource>().Play();
+
+        txtbpm.SetActive(true);
         anavol.scanLineJitter.Override(0.3f);
         anavol.colorDrift.Override(0.2f);
         animator.Play("bpmoverlay_appear");
@@ -82,6 +87,8 @@ public class scr_react : MonoBehaviour
 
     public void CalmDown()
     {
+        txtbpm.SetActive(false);
+        txtbpm.GetComponent<AudioSource>().Stop();
         isPanic = false;
         bpm.bpm = 60;
         anavol.scanLineJitter.Override(0f);

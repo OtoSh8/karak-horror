@@ -18,6 +18,7 @@ public class ThirdPersonController : MonoBehaviour
     public bool isCrouch;
     public bool isMoving;
     public bool isdown;
+    public bool getout = false;
 
     [Header("Camera Settings")]
     [SerializeField] private CinemachineCamera Camfreelook;
@@ -45,8 +46,11 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject barrierpref;
     private GameObject spawnedbar;
 
+    public bool isEnabled = true;
+    public bool gamefinished = false;
+
     [Header("Interaction Thumbnails")]
-    [SerializeField] private Image img_;
+    [SerializeField] public Image img_;
     [SerializeField] private Sprite img_blood;
     [SerializeField] private Sprite img_cloth;
     [SerializeField] private Sprite img_glass;
@@ -85,7 +89,8 @@ public class ThirdPersonController : MonoBehaviour
     {
         smokevol.transform.position = new Vector3(this.gameObject.transform.position.x,5,this.gameObject.transform.position.z);
 
-            HandleInput();
+
+        HandleInput();
 
         /*UpdateCamera();*/
         CheckCar();
@@ -122,6 +127,7 @@ public class ThirdPersonController : MonoBehaviour
 
         if (this.transform.GetChild(0).gameObject.activeInHierarchy)
         {
+            if (!isEnabled) return;
             if (!this.transform.GetChild(0).GetComponent<Animator>().IsInTransition(0) && this.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 && this.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name != "drink" || this.transform.GetChild(0).GetComponent<Animator>().IsInTransition(0))
             {
                 moveX = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : 0f;
@@ -285,7 +291,7 @@ public class ThirdPersonController : MonoBehaviour
             objint.SetActive(false);
             this.transform.localPosition = new Vector3(2,0,0);
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || getout)
             {
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f, 0);
 
@@ -306,6 +312,7 @@ public class ThirdPersonController : MonoBehaviour
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Radius = 5.3f;
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineOrbitalFollow>().Orbits.Center.Height = 1.15f;
                     GameObject.Find("FreeLook Camera").GetComponent<CinemachineRotationComposer>().TargetOffset = new Vector3(0, 0.78f, 0);
+                    getout = false;
 
                 }
 
@@ -477,12 +484,14 @@ public class ThirdPersonController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         GameObject.Find("FreeLook Camera").GetComponent<CinemachineInputAxisController>().enabled = true;
+        img_.enabled = false;
     }
 
     public void SpawnBarrier()
     {
         spawnedbar=Instantiate(barrierpref, GameObject.Find("obj_controller").GetComponent<scr_controller>().crnt_level1_obj.transform.position + new Vector3(0,20,40), Quaternion.identity);
         GameObject.FindGameObjectWithTag("level1").GetComponent<scr_levelone>().Interacted();
+        GameObject.Find("obj_player").GetComponent<scr_inventory>().quest.GetComponent<scr_quest>().AddList("Help the schoolboy find his mother.");
     }
 
     public void DestroyBarrier()
@@ -491,7 +500,7 @@ public class ThirdPersonController : MonoBehaviour
         {
             Destroy(spawnedbar);
         }
-
+        GameObject.Find("obj_player").GetComponent<scr_inventory>().quest.GetComponent<scr_quest>().RemoveList("Help the schoolboy find his mother.");
     }
 
 

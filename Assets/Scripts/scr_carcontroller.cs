@@ -23,6 +23,15 @@ public class scr_carcontroller : MonoBehaviour
 
     private bool breaking = false;
 
+    [Header("Audio")]
+    public float fadeDuration = 2.0f; // Duration of the fade in seconds
+    public float targetVolume = 1.0f; // Target volume (0 to 1)
+    public float targetPitch = 1.0f; // Target pitch (default is 1)
+
+    private float initialVolume;
+    private float initialPitch;
+    private float elapsedTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +56,43 @@ public class scr_carcontroller : MonoBehaviour
             {
                 vInput = Input.GetAxis("Vertical");
                 hInput = Input.GetAxis("Horizontal");
+
+                if(vInput != 0)
+                {
+                    if (targetVolume != 0.25f)
+                    {
+                        elapsedTime = 0;
+
+                    }
+                    targetVolume = 0.25f;
+                    initialVolume = 0;
+
+                    targetPitch = 1.0f;
+                    initialPitch = 0;
+                }
+                else
+                {
+                    if(targetVolume != 0)
+                    {
+                        elapsedTime = 0;
+                    }
+                    targetVolume = 0f;
+                    initialVolume = 0.25f;
+
+                    targetPitch = 0f;
+                    initialPitch = 1.0f;
+                }
+
+
+                // Increment the elapsed time
+                elapsedTime += Time.deltaTime;
+
+                // Calculate the interpolation factor (0 to 1)
+                float t = Mathf.Clamp01(elapsedTime / fadeDuration);
+
+                // Interpolate volume and pitch
+                this.GetComponent<AudioSource>().volume = Mathf.Lerp(initialVolume, targetVolume, t);
+                this.GetComponent<AudioSource>().pitch = Mathf.Lerp(initialPitch, targetPitch, t);
             }
             
 
@@ -151,6 +197,8 @@ public class scr_carcontroller : MonoBehaviour
                 wheel.WheelCollider.brakeTorque = brakeTorque;
                 wheel.WheelCollider.motorTorque = 0;
             }
+            this.GetComponent<AudioSource>().volume = 0;
+            this.GetComponent<AudioSource>().pitch = 0;
         }
 
         

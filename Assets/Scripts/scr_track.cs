@@ -58,6 +58,7 @@ public class scr_track : MonoBehaviour
                 if (hit.collider.CompareTag(targetTag))
                 {
                     Debug.Log("Spotlight is hitting object at: " + hit.collider.gameObject.transform.position);
+                    GotCaught();
                     /*this.GetComponent<Animator>().speed = 0;*/
                     // You can add additional logic here, like triggering an event
                 }
@@ -106,11 +107,16 @@ public class scr_track : MonoBehaviour
         {
             if(other.GetComponent<ThirdPersonController>().isMoving && !other.GetComponent<ThirdPersonController>().isCrouch)
             {
-                Debug.Log(" I HEARD Y");
+                GotCaught();
             }
         }
     }
 
+    private void GotCaught()
+    {
+        Debug.Log("DEAD");
+        GameObject.Find("par_jumpscare").GetComponent<scr_death>().Death(3);
+    }
     // Optional: Visualize the rays in the Scene view
     void OnDrawGizmos()
     {
