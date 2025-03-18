@@ -36,14 +36,6 @@ public class scr_item : MonoBehaviour
         }
         
     }
-    private void OnDisable()
-    {
-        if(bil.GetComponent<Image>() != null)
-        {
-            bil.GetComponent<Image>().enabled = false;
-
-        }
-    }
 
     private void OnDestroy()
     {

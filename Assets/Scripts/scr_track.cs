@@ -58,7 +58,7 @@ public class scr_track : MonoBehaviour
                 if (hit.collider.CompareTag(targetTag))
                 {
                     Debug.Log("Spotlight is hitting object at: " + hit.collider.gameObject.transform.position);
-                    /*this.GetComponent<Animator>().speed = 0;*/
+                    this.GetComponent<Animator>().speed = 0;
                     // You can add additional logic here, like triggering an event
                 }
             }

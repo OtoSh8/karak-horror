@@ -35,17 +35,19 @@ public class ThirdPersonController : MonoBehaviour
     private float cameraPitch;
     private float cameraYaw;
 
-    public bool inCar;
+    private bool inCar;
     public GameObject objcar;
     public GameObject objint;
 
     public GameObject smokevol;
+    public GameObject txtgear;
+
     public TextMeshProUGUI txtint;
 
     public GameObject barrierpref;
     private GameObject spawnedbar;
 
-    [Header("Interaction Thumbnails")]
+    [Header("Camera Settings")]
     [SerializeField] private Image img_;
     [SerializeField] private Sprite img_blood;
     [SerializeField] private Sprite img_cloth;
@@ -54,9 +56,6 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private Sprite img_vape;
     [SerializeField] private Sprite img_wallet;
     [SerializeField] private Sprite img_files;
-    [SerializeField] private Sprite img_shrine;
-    [SerializeField] private Sprite img_corpse;
-    [SerializeField] private Sprite img_parang;
 
     public bool jump;
 
@@ -84,9 +83,7 @@ public class ThirdPersonController : MonoBehaviour
     private void Update()
     {
         smokevol.transform.position = new Vector3(this.gameObject.transform.position.x,5,this.gameObject.transform.position.z);
-
-            HandleInput();
-
+        HandleInput();
         /*UpdateCamera();*/
         CheckCar();
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isGrounded", isGrounded);
@@ -117,31 +114,8 @@ public class ThirdPersonController : MonoBehaviour
     private void HandleInput()
     {
         // Movement input
-        float moveX = 0;
-        float moveZ = 0;
-
-        if (this.transform.GetChild(0).gameObject.activeInHierarchy)
-        {
-            if (!this.transform.GetChild(0).GetComponent<Animator>().IsInTransition(0) && this.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 && this.transform.GetChild(0).GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name != "drink" || this.transform.GetChild(0).GetComponent<Animator>().IsInTransition(0))
-            {
-                moveX = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : 0f;
-                moveZ = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : 0f;
-
-                if (!isdown)
-                {
-                    isSprint = Input.GetKey(KeyCode.LeftShift);
-                }
-
-                if (Input.GetKeyDown(KeyCode.LeftControl))
-                {
-                    isCrouch = !isCrouch;
-                }
-            }
-            
-        }
-
-
-
+        float moveX = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : 0f;
+        float moveZ = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : 0f;
 
         if(moveX != 0f || moveZ != 0f)
         {
@@ -154,11 +128,17 @@ public class ThirdPersonController : MonoBehaviour
 
         inputMovement = new Vector2(moveX, moveZ);
 
-
+        if (!isdown)
+        {
+            isSprint = Input.GetKey(KeyCode.LeftShift);
+        }
         
 
         /*isCrouch = Input.GetKey(KeyCode.LeftControl);*/
-
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouch = !isCrouch;
+        }
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isSprint", isSprint);
         this.transform.GetChild(0).GetComponent<Animator>().SetBool("isCrouch", isCrouch);
 
@@ -285,13 +265,14 @@ public class ThirdPersonController : MonoBehaviour
             objint.SetActive(false);
             this.transform.localPosition = new Vector3(2,0,0);
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || this.GetComponent<scr_react>().isPanic)
             {
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f, 0);
 
                 // If there are any colliders in the area
                 if (hitColliders.Length <= 0)
                 {
+                    txtgear.SetActive(false);
                     inCar = false;
                     this.GetComponent<MeshRenderer>().transform.GetChild(0).gameObject.SetActive(true);
                     this.transform.position = GameObject.Find("spawnpoint").transform.position;
@@ -316,6 +297,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void ChangeToCar()
     {
+        txtgear.SetActive(true);
         inCar = true;
         this.gameObject.transform.SetParent(objcar.transform, true);
         transform.position = objcar.transform.position;
@@ -385,7 +367,6 @@ public class ThirdPersonController : MonoBehaviour
                             img_.sprite = img_vape;
                             img_.SetNativeSize();
                             this.GetComponent<scr_inventory>().PickupItem(1);
-                            this.GetComponent<scr_inventory>().OnPickupBattery();
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             
                             break;
@@ -432,31 +413,11 @@ public class ThirdPersonController : MonoBehaviour
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
                         case "shrine":
-                            img_.sprite = img_shrine;
-                            img_.SetNativeSize();
-
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
                         case "corpse":
-                            img_.sprite = img_corpse;
-                            img_.SetNativeSize();
-                            collidedObject.gameObject.GetComponent<CapsuleCollider>().enabled = false;
                             collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
                             break;
-                        case "parang":
-                            img_.sprite = img_parang;
-                            img_.SetNativeSize();
-
-                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            break;
-                        case "battery":
-                            this.GetComponent<scr_inventory>().OnPickupBattery();
-                            collidedObject.gameObject.GetComponent<InteractableFungusCharacter>().Interact();
-                            break;
-                        case "kill":
-                            collidedObject.transform.parent.transform.parent.GetComponent<scr_preg>().OnKarakKill();
-                            break;
-
                         case null:
                             break;
                     }
