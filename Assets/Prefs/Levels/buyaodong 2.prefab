@@ -54,8 +54,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  imagename: bill_wallet
   isEnabled: 0
+  pref_bil: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!136 &6847077412002241052
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9885,6 +9886,7 @@ GameObject:
   - component: {fileID: 648787732895500127}
   - component: {fileID: 3695663974975352987}
   - component: {fileID: 951935424796937545}
+  - component: {fileID: 620034033105054815}
   m_Layer: 3
   m_Name: NPC
   m_TagString: Interact
@@ -9921,11 +9923,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -141.595, y: 135}
+  scrollPos: {x: -236.65643, y: 208.69078}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.85000014
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -9935,7 +9937,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1238703747383107177}
   selectedCommands:
-  - {fileID: 3695663974975352987}
+  - {fileID: 620034033105054815}
   variables: []
   description: 
   stepPause: 0
@@ -9986,6 +9988,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 648787732895500127}
   - {fileID: 3695663974975352987}
+  - {fileID: 620034033105054815}
   suppressAllAutoSelections: 0
 --- !u!114 &6397095818752324312
 MonoBehaviour:
@@ -10080,6 +10083,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3590088, y: 6.6528115, z: 1.8172607}
   m_Center: {x: -0.30963135, y: 0.96, z: 0.7670288}
+--- !u!114 &620034033105054815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070578533922162903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  storyText: <color="red>Help me...I can't see anymore! I need my wife!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  background: 1
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &2071949138553399463
 GameObject:
   m_ObjectHideFlags: 0
@@ -49920,15 +49951,15 @@ PrefabInstance:
       objectReference: {fileID: 1283653745830118063}
     - target: {fileID: 3959996666999618105, guid: 6154d8f8721c8164fbe15782f5faf17c, type: 3}
       propertyPath: scrollPos.x
-      value: -100.27319
+      value: -201.07321
       objectReference: {fileID: 0}
     - target: {fileID: 3959996666999618105, guid: 6154d8f8721c8164fbe15782f5faf17c, type: 3}
       propertyPath: scrollPos.y
-      value: 4.289215
+      value: 7.489212
       objectReference: {fileID: 0}
     - target: {fileID: 3959996666999618105, guid: 6154d8f8721c8164fbe15782f5faf17c, type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3959996666999618105, guid: 6154d8f8721c8164fbe15782f5faf17c, type: 3}
       propertyPath: 'selectedCommands.Array.data[0]'
