@@ -12,8 +12,6 @@ public class scr_carcontroller : MonoBehaviour
     public float steeringRangeAtMaxSpeed = 10;
     public float centreOfGravityOffset = -1f;
     public bool incar = false;
-    [SerializeField] TMP_Text gearind;
-
     scr_WheelControl[] wheels;
     Rigidbody rigidBody;
 
@@ -42,10 +40,17 @@ public class scr_carcontroller : MonoBehaviour
     {
         if (incar == true)
         {
-            float vInput = Input.GetAxis("Vertical");
-            float hInput = Input.GetAxis("Horizontal");
+            float vInput = 0;
+            float hInput = 0;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!GameObject.Find("obj_player").GetComponent<scr_react>().isPanic)
+            {
+                vInput = Input.GetAxis("Vertical");
+                hInput = Input.GetAxis("Horizontal");
+            }
+            
+
+            /*if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (gear == 1)
                 {
@@ -61,7 +66,7 @@ public class scr_carcontroller : MonoBehaviour
                     rev_left.enabled = false;
                     rev_right.enabled = false;
                 }
-            }
+            }*/
 
             if(vInput < -0.5f)
             {
@@ -115,17 +120,17 @@ public class scr_carcontroller : MonoBehaviour
                 // Apply torque to Wheel colliders that have "Motorized" enabled
                 if (wheel.motorized)
                 {
-                    wheel.WheelCollider.motorTorque = gear * Mathf.Abs(vInput) * currentMotorTorque;
-                }
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                    }
                 wheel.WheelCollider.brakeTorque = 0;
                     
                 }
             else
             {
-                // If the user is trying to go in the opposite direction
-                // apply brakes to all wheels
-                wheel.WheelCollider.brakeTorque = Mathf.Abs(gear * vInput) * brakeTorque;
-                wheel.WheelCollider.motorTorque = 0;
+                    // If the user is trying to go in the opposite direction
+                    // apply brakes to all wheels
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                    wheel.WheelCollider.motorTorque = 0;
 
                     breaking = true;
                 }

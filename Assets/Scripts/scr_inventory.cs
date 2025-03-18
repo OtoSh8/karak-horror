@@ -27,7 +27,43 @@ public class scr_inventory : MonoBehaviour
     public GameObject tip_vape;
 
     public GameObject quest;
+    public GameObject par_bat;
+    int bat = 0;
+    public void OnPickupBattery()
+    {
+        bat = 4;
+        for(int i = 0; i < par_bat.transform.childCount; i++)
+        {
+            if(i <= bat)
+            {
+                par_bat.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                par_bat.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+    }
 
+    public void OnUseVape()
+    {
+        bat--;
+
+        for (int i = 0; i < par_bat.transform.childCount; i++)
+        {
+            if (i <= bat)
+            {
+                par_bat.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                par_bat.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        HoldItem(1);
+        this.transform.GetChild(0).GetComponent<Animator>().Play("drink");
+        this.GetComponent<scr_react>().CalmDown();
+    }
     public void PickupItem(int x)
     {
         if (inv_data.Contains(x)) return;
@@ -141,7 +177,7 @@ public class scr_inventory : MonoBehaviour
 
     }
 
-    private void HoldItem(int y)
+    public void HoldItem(int y)
     {
         for(int i = 0; i < par_held.transform.childCount; i++)
         {
@@ -197,21 +233,9 @@ public class scr_inventory : MonoBehaviour
         {
             tip_vape.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetMouseButtonDown(1) && this.gameObject.GetComponent<ThirdPersonController>().inCar == false && bat > 0)
         {
-            switch (sel_slot)
-            {
-                case 1:
-                    //vape
-                    this.transform.GetChild(0).GetComponent<Animator>().Play("drink");
-                    this.GetComponent<scr_react>().CalmDown();
-                    break;
-                case 2:
-                    //ring
-                    break;
-                case 3:
-                    break;
-            }
+            OnUseVape();
         }
     }
     private void Start()
