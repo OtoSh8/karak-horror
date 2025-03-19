@@ -34,6 +34,7 @@ public class scr_preg : MonoBehaviour
     public void scenestarted()
     {
         GameObject.FindFirstObjectByType<ThirdPersonController>().isEnabled = false;
+        GameObject.FindFirstObjectByType<ThirdPersonController>().isCrouch = true;
     }
     public void scenefinished()
     {

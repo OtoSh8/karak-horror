@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3344264095686957364}
   - component: {fileID: 6620675316588266664}
   - component: {fileID: 418250245720874965}
-  - component: {fileID: 4193183315768961128}
+  - component: {fileID: 3932138417771115445}
   m_Layer: 7
   m_Name: level 1 road
   m_TagString: Untagged
@@ -305,8 +305,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35281332851866652}
   m_Mesh: {fileID: 0}
---- !u!64 &4193183315768961128
-MeshCollider:
+--- !u!65 &3932138417771115445
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -323,10 +323,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 34.338333, y: 0.4668405, z: 198.08064}
+  m_Center: {x: -0.0000014007092, y: -0.26657975, z: -0.21175765}
 --- !u!1 &71887858178289515
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +491,7 @@ MonoBehaviour:
   horizontalRayCount: 80
   verticalRayCount: 14
   spotlight: {fileID: 5301379230719834056}
-  radius: 21.1
+  radius: 18.5
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isdead: 0
 --- !u!135 &3542603120971584138
@@ -5067,7 +5066,7 @@ Transform:
   m_GameObject: {fileID: 1765706415638385735}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7950863, z: -0, w: 0.60649633}
-  m_LocalPosition: {x: -2.47, y: -4.02, z: 137.02}
+  m_LocalPosition: {x: -4.96, y: -4.02, z: 138.24}
   m_LocalScale: {x: 0.6853756, y: 0.25435334, z: 0.7265406}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5125,7 +5124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -287.25977, y: 44.903015}
+  scrollPos: {x: -396.85974, y: 13.103027}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -20268,7 +20267,7 @@ Transform:
   m_GameObject: {fileID: 6225050515291507518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7950863, z: -0, w: 0.60649633}
-  m_LocalPosition: {x: 3.86, y: -5.513, z: 81.63}
+  m_LocalPosition: {x: 2.47162, y: -5.513, z: 82.310265}
   m_LocalScale: {x: 0.38215324, y: 0.14182292, z: 0.4051062}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23465,7 +23464,7 @@ Transform:
   m_GameObject: {fileID: 7344925021091646924}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5557624, y: 0.55576247, z: 0.437182, w: 0.43718207}
-  m_LocalPosition: {x: 1.3267499, y: -0.67499995, z: 177.2913}
+  m_LocalPosition: {x: 0.69, y: -0.67499995, z: 183.4}
   m_LocalScale: {x: 0.39999998, y: 0.39999992, z: 0.39999998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30026,13 +30025,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9097141837380938132}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.054763973, y: -0.34932274, z: 0.020456346, w: 0.9351771}
-  m_LocalPosition: {x: -0.827, y: -5.801, z: 77.279}
+  m_LocalRotation: {x: 0.023533683, y: -0.91382766, z: 0.053513773, w: 0.40187246}
+  m_LocalPosition: {x: -0.27, y: -5.801, z: 75.53}
   m_LocalScale: {x: 0.64885527, y: 0.64885527, z: 0.64885527}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1147960378344392505}
-  m_LocalEulerAnglesHint: {x: 6.703, y: -40.965, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.703, y: -132.523, z: 0}
 --- !u!33 &4817586564652612747
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30105,8 +30104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1446936, y: 3.1568675, z: 3.2663329}
-  m_Center: {x: -0.00006100894, y: 1.5068865, z: 1.3294075e-12}
+  m_Size: {x: 3.7020838, y: 3.9600687, z: 3.2663321}
+  m_Center: {x: -0.000060988008, y: 1.908486, z: -0.00000002115014}
 --- !u!1 &9163276722909843842
 GameObject:
   m_ObjectHideFlags: 0
@@ -31385,8 +31384,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.4263742, y: 2.9259307, z: 2.096049}
-  m_Center: {x: 0.16516316, y: 1.4224347, z: -0.0087051205}
+  m_Size: {x: 2.9853346, y: 2.9259307, z: 2.096049}
+  m_Center: {x: -0.114317626, y: 1.4224347, z: -0.0087051205}
 --- !u!1001 &5729962247465888319
 PrefabInstance:
   m_ObjectHideFlags: 0

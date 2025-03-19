@@ -107,6 +107,7 @@ public class scr_followroute : MonoBehaviour
                     Debug.Log("CAR HAS ALLOWED U");
                     if (!activated)
                     {
+                        Destroy(this.transform.GetChild(0));
                         GameObject.Find("obj_player").GetComponent<scr_inventory>().quest.GetComponent<scr_quest>().AddList("Set the beetle car driver free.");
                         activated = true;
                     }

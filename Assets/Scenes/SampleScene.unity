@@ -6436,7 +6436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 620299560}
+  selectedFlowchart: {fileID: 0}
 --- !u!4 &624863478
 Transform:
   m_ObjectHideFlags: 1
@@ -8541,8 +8541,8 @@ MonoBehaviour:
   Level3: {fileID: 4413311038005963231, guid: ce19f46b941ce274096e1249d45dd1cb, type: 3}
   crnt_level1_obj: {fileID: 0}
   particle_release: {fileID: 1071819926091247890, guid: 54430beb322329144bd9be694915ee90, type: 3}
-  isHelp: 1
-  isEscaped: 1
+  isHelp: 0
+  isEscaped: 0
 --- !u!4 &1154597698
 Transform:
   m_ObjectHideFlags: 0
@@ -16599,8 +16599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 2
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
+  outlineWidth: 5
+  precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
 --- !u!1 &1804795913
@@ -19504,6 +19504,10 @@ PrefabInstance:
       propertyPath: img_parang
       value: 
       objectReference: {fileID: -646344395, guid: 9ddfbeb03a6d1934ba20b1369c8f9976, type: 3}
+    - target: {fileID: 3699871992726826756, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
+      propertyPath: img_shrine
+      value: 
+      objectReference: {fileID: 21300000, guid: 7dba11e84dffcb64aba754d0d857bf9c, type: 3}
     - target: {fileID: 3699871992726826756, guid: 51aecb6ca108e88448aba05d0267d77e, type: 3}
       propertyPath: img_wallet
       value: 
